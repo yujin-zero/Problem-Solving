@@ -1,28 +1,21 @@
 import sys
-
 n = int(sys.stdin.readline())
 stack = []
-i = 0
+i = 1
 result = []
 
 for _ in range(n):
     x = int(sys.stdin.readline())
-    while True:
-        if x in stack:
-            if stack[-1] == x:
-                stack.pop()
-                result.append('-')
-                break
-            else:
-                print("NO")
-                sys.exit()
-        else:
-            if i+1 > x:
-                print("NO")
-                sys.exit()
-            else:
-                i += 1
-                stack.append(i)
-                result.append('+')
+    while i <= x:
+        stack.append(i)
+        result.append('+')
+        i += 1
+
+    if stack[-1] == x:
+        stack.pop()
+        result.append('-')
+    else:
+        print("NO")
+        sys.exit()
 
 print('\n'.join(result))
