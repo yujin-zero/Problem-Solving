@@ -1,45 +1,31 @@
 import sys
 
-
-def high():
-    max = 0
-    for i in range(n):
-        for j in range(m):
-            if ground[i][j] > max:
-                max = ground[i][j]
-    return max
-
-
-def low():
-    min = 256
-    for i in range(n):
-        for j in range(m):
-            if ground[i][j] < min:
-                min = ground[i][j]
-    return min
-
-
 n, m, b = map(int, sys.stdin.readline().split())
-ground = []
+ground = {}  # 높이 : 갯수
 for _ in range(n):
     g = list(map(int, sys.stdin.readline().split()))
-    ground.append(g)
+    for i in range(m):
+        if g[i] in ground:
+            ground[g[i]] += 1
+        else:
+            ground[g[i]] = 1
+
 
 time = []
 
-for x in range(low(), high()+1):
+for x in range(min(ground), max(ground)+1):
     t = 0
     block = b
-    for i in range(n):
-        for j in range(m):
-            if ground[i][j] > x:
-                y = ground[i][j]-x
-                t += 2*y
-                block += y
-            else:
-                y = x - ground[i][j]
-                t += y
-                block -= y
+    for key in ground:
+        if key > x:
+            y = key-x
+            t += 2*y*ground[key]
+            block += y*ground[key]
+        else:
+            y = x - key
+            t += y*ground[key]
+            block -= y*ground[key]
+
     if block >= 0:
         time.append([t, x])
 
