@@ -39,16 +39,7 @@ for _ in range(t) :
                 x[i] = tmp[i]
             for r in re :
                 x[r] = not tmp[r]
-            a = 0
-            for v in visit :
-                aa = 0
-                for j in range(9) :
-                    if v[j] != x[j] :
-                        aa = 1
-                if aa == 0 :
-                    a = 1
-                    break
-            if a == 0 :
+            if x not in visit :
                 queue.append((x,cnt+1))
                 visit.append(x)
 
