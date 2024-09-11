@@ -1,9 +1,10 @@
 import sys
-
+sys.setrecursionlimit(10**6)
 
 def find(x):
     if parent[x] != x:
-        return find(parent[x])
+        parent[x] = find(parent[x])
+        return parent[x]
     return x
 
 
