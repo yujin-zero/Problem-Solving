@@ -52,6 +52,12 @@ for line1 in range(N) :
 
         x1, y1, x2, y2 = line[line1]
         x3, y3, x4, y4 = line[line2]
+
+        if max(x1, x2) < min(x3, x4) or max(x3, x4) < min(x1, x2):
+            continue
+        if max(y1, y2) < min(y3, y4) or max(y3, y4) < min(y1, y2):
+            continue
+
         is_cross = cross_line(x1,y1,x2,y2,x3,y3,x4,y4)
 
         if is_cross :
