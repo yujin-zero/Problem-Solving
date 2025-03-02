@@ -1,4 +1,4 @@
-# 🏆 Program-Solving
+# 🏆 Problem-Solving
 
 🚀 **백준(BOJ), 프로그래머스(Programmers), SWEA, LeetCode에서 푼 문제를 자동으로 관리하는 레포지토리입니다.**  
 알고리즘 문제 풀이 기록을 체계적으로 관리하고 실력을 향상시키기 위한 공간입니다.
