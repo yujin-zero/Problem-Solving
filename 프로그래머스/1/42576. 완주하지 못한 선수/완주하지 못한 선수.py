@@ -1,15 +1,20 @@
 def solution(participant, completion):
-    people = dict()
-    for c in completion :
-        if c in people :
-            people[c] += 1
+    answer = ''
+    
+    dictionary = dict()
+    for c in participant :
+        if c in dictionary :
+            dictionary[c] += 1
         else :
-            people[c] = 1
+            dictionary[c] = 1
             
-    for p in participant :
-        if p not in people :
-            return p
+    #print(dictionary)
+    for c in completion :
+        dictionary[c] -= 1
+    #print(dictionary)
+    for key, value in dictionary.items() :
+        if value >= 1 :
+            return key
         
-        people[p] -= 1
-        if people[p] < 0 :
-            return p
+    
+    return answer
