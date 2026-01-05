@@ -3,5 +3,6 @@ with cte as (select stock_name,
         else price
     end as real_price
 from Stocks)
-select *
+select stock_name, sum(real_price) as capital_gain_loss
 from cte
+group by stock_name
